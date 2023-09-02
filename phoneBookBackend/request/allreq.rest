@@ -1,0 +1,17 @@
+delete http://localhost:3001/api/phoneBook/2
+###
+delete http://localhost:3001/api/phoneBook/6
+###
+get http://localhost:3001/api/persons
+###
+get http://localhost:3001/api/info
+###
+post http://localhost:3001/api/persons HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Ostin Oliv",
+    "number": "33-44-214798"
+}
+###
+get http://localhost:3001/api/persons/2

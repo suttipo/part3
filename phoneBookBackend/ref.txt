@@ -1,0 +1,16 @@
+morgan 
+https://dev.to/devland/how-to-use-morgan-in-your-nodejs-project-21im
+
+react build app
+https://create-react-app.dev/docs/deployment/
+
+1. before run build change api in your app
+2. in backend 
+const path = require 'path'
+app.use(express.static(path.join(__dirname, 'build')));
+
+*** send file index.html in build folder to client ***
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+https://www.linkedin.com/pulse/deploying-your-reactjs-nodejs-server-rendercom-serena-dean/
