@@ -14,3 +14,8 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 https://www.linkedin.com/pulse/deploying-your-reactjs-nodejs-server-rendercom-serena-dean/
+
+Render.com static outbound ip address 
+13.228.225.19
+18.142.128.26
+54.254.162.138
