@@ -1,0 +1,2 @@
+#ignore .env in phoneBookBackend
+phoneBookBackend/.env
