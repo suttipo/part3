@@ -6,17 +6,16 @@ console.log('password',password);
 //assign name , number from process.argv
 const name = process.argv[3];
 const number = process.argv[4];
-
 //console.log('name, number', name, number);
-
 //define url for connect mongodb
 const url = `mongodb+srv://suttiponglaisiri:${password}@cluster0.ljjfkzi.mongodb.net/?retryWrites=true&w=majority`
 mongoose.set('strictQuery',false);
+//connect mongodb server
 mongoose.connect(url)
 .then(() => console.log('connect to mongodb yet'))
 .catch(err => console.log(err));
 
-//define peersonSchema 
+//define personSchema 
 const personSchema = new mongoose.Schema({
     name: String,
     number: String

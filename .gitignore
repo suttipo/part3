@@ -1,2 +1,4 @@
 #ignore .env in phoneBookBackend
 phoneBookBackend/.env
+#ignore node_modules
+phoneBookBackend/node_modules

@@ -1,18 +1,19 @@
+require('dotenv').config()
 const express = require('express')
 const path = require('path');
-const logger = require('morgan')//assign morgan to logger
+//const logger = require('morgan')//assign morgan to logger
 const app = express();
 const PORT = 3001
-
+//console.log(process.env.MONGO_URI)
 app.use(express.json())
 app.use(express.static(path.join(__dirname, 'build')));
 
-logger.token('host', (req, res) => {
-  return req.hostname
- })
-logger.token('data', (req, res) => JSON.stringify(req.body))
+// logger.token('host', (req, res) => {
+//   return req.hostname
+//  })
+// logger.token('data', (req, res) => JSON.stringify(req.body))
 
-app.use(logger(':host :url :res[header] :date[web] :data'))
+// app.use(logger(':host :url :res[header] :date[web] :data'))
 
 let phoneBook = [
   {
@@ -41,14 +42,11 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 app.get('/api/persons', (req, res) => {
-  console.log('res',res)
+  //console.log('res',res)
   res.json(phoneBook)
 
 })
-// app.get('/', (req, res) => {
-//   //console.log('res.data', res.data)
-//   res.send('<h1>Hello Express</h1>')
-// })
+
 app.get('/api/info', (req, res) => {
   const dateReq = new Date()
   const date = dateReq.toDateString()
