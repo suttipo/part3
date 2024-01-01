@@ -1,7 +1,8 @@
 const mongoose = require ('mongoose');
 
 //encode password from process.argv[2]
-const password = encodeURIComponent(process.argv[2]);
+const password = process.argv[2]
+//encodeURIComponent(process.argv[2]);
 console.log('password',password);
 //assign name , number from process.argv
 const name = process.argv[3];
@@ -32,7 +33,10 @@ if(process.argv.length < 3){
         result.forEach(person => {
             console.log(`${person.name} ${person.number}`)
         })
-        mongoose.connection.close() 
+        mongoose.connection.close()
+        .then(() => console.log('disconnect to mongodb yet'))
+        .catch(err => console.log(err));
+        
     })
 }else if(process.argv.length > 3){
 
@@ -44,7 +48,7 @@ const person = new Persons({
 console.log('person', person);
 
 person.save().then(result => {
-    console.log(`Added ${result.name} ${result.number} to phoneBook`);
+    console.log(`Added ${result.name} ${result.number} to phonebook`);
     mongoose.connection.close()
 }).catch(err => console.log(err));
 }

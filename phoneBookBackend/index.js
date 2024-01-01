@@ -58,19 +58,19 @@ app.get('/api/info', (req, res) => {
 })
 app.post('/api/persons', (req, res) => {
   const person = req.body
-  console.log('person 3', person)
+  //console.log('person 3', person)
   //check name and number is exist
   if (person.hasOwnProperty('name') && person.hasOwnProperty('number')) {
     if (phoneBook.find(ele => ele.name == person.name)) {
       res.status(400).end('name must be uniqe')
     } else {
       const id = Math.floor(Math.random() * 1000)
-      console.log('id', id)
+      //console.log('id', id)
       person.id = id
       //console.log('person', person)
 
       phoneBook = [...phoneBook.concat(person)]
-      console.log('phoneBook', phoneBook)
+      //console.log('phoneBook', phoneBook)
       res.json(person)
     }
   } else {
